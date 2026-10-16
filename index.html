@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مطعم الحجي | اطلب الآن</title>
+<meta name="description" content="مطعم الحجي – مطعم عراقي. اللحوم عراقية 100٪ وعلى ذمتنا. اطلب عبر واتساب.">
+<meta name="theme-color" content="#0b0906">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0906'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23d4a437' font-family='serif'%3Eح%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0906;--bg2:#15110b;--card:#1b160e;--line:#3a2f19;--gold:#d4a437;--gold2:#f1d37a;--txt:#f6efe0;--mut:#b9ad94;--err:#ff8a7a;--ok:#7fd69a;--safe-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{background:var(--bg);color:var(--txt);font-family:'Cairo','Tahoma','Segoe UI',sans-serif;line-height:1.6;font-size:16px;-webkit-tap-highlight-color:transparent}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.gold{background:linear-gradient(100deg,#9c7418,#f1d37a 45%,#c8962b 70%,#f6e3a0);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(11,9,6,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Reem Kufi','Cairo',serif;font-size:1.7rem;font-weight:700;line-height:1}
+.cartbtn{position:relative;display:flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--gold);border-radius:999px;color:var(--gold2);font-weight:600;transition:.2s}
+.cartbtn:hover{background:var(--gold);color:#1a1204}
+.badge{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--gold);color:#1a1204;font-size:.8rem;font-weight:800;display:grid;place-items:center}
+.bump{animation:bump .45s}
+@keyframes bump{40%{transform:scale(1.35)}}
+.hours{padding:8px 16px;text-align:center;font-weight:600;font-size:.95rem;border-bottom:1px solid var(--line)}
+.hours.on{background:rgba(127,214,154,.12);color:var(--ok)}
+.hours.off{background:rgba(255,138,122,.14);color:var(--err)}
+.add[disabled]{background:var(--line);color:var(--mut);cursor:not-allowed}
+/* hero */
+.hero{position:relative;min-height:78vh;display:grid;align-items:end;overflow:hidden;background:radial-gradient(120% 90% at 80% 10%,#3b2a0c,#0b0906 70%)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,6,.25),rgba(11,9,6,.55) 55%,var(--bg))}
+.hero .in{position:relative;z-index:2;padding:80px 0 44px;animation:rise .9s both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.hero h1{font-family:'Reem Kufi','Cairo',serif;font-size:clamp(3.2rem,13vw,6.8rem);line-height:1.05;font-weight:700}
+.hero .slogan{font-size:clamp(1.15rem,4vw,1.6rem);margin:12px 0 6px;color:var(--gold2);font-weight:600}
+.hero p{color:var(--mut);max-width:34em}
+.deliv{display:inline-flex;align-items:center;gap:10px;margin:18px 0 22px;padding:10px 16px;border:1px dashed var(--gold);border-radius:12px;background:rgba(212,164,55,.1);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:12px;font-weight:800;font-size:1.05rem;background:linear-gradient(135deg,#b98a22,#f1d37a);color:#1a1204;transition:transform .15s,box-shadow .2s;min-height:48px}
+.btn:hover{box-shadow:0 8px 26px rgba(212,164,55,.35)}
+.btn:active{transform:scale(.96)}
+.btn.sec{background:none;border:1.5px solid var(--gold);color:var(--gold2)}
+.btn.wa{background:#1fa855;color:#fff}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+/* categories */
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;padding:26px 0 8px}
+.cg{padding:14px 8px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-align:center;transition:.2s}
+.cg:hover{border-color:var(--gold);transform:translateY(-3px)}
+.cg b{display:block;font-size:1.8rem;line-height:1.3}
+.cg span{font-weight:600;font-size:.95rem}
+/* menu tools */
+.tools{position:sticky;top:60px;z-index:30;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line)}
+.search{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg2);font-size:1rem}
+.search:focus{border-color:var(--gold);outline:0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:7px 15px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--mut);font-weight:600;transition:.2s;white-space:nowrap}
+.chip[aria-pressed=true]{background:var(--gold);color:#1a1204;border-color:var(--gold)}
+h2.sec{font-family:'Reem Kufi','Cairo',serif;font-size:1.9rem;margin:34px 0 14px;display:flex;align-items:center;gap:12px}
+h2.sec::after{content:"";flex:1;height:1px;background:linear-gradient(to left,var(--line),transparent)}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.it{display:flex;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card);transition:border-color .2s}
+.it:hover{border-color:var(--gold)}
+.it h3{font-size:1.05rem;font-weight:700;line-height:1.5}
+.note{display:inline-block;font-size:.78rem;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:0 8px}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.sz{padding:6px 2px;border:1.5px solid var(--line);border-radius:10px;font-size:.85rem;line-height:1.35;color:var(--mut)}
+.sz b{display:block;color:var(--txt);font-size:.9rem}
+.sz[aria-pressed=true]{border-color:var(--gold);background:rgba(212,164,55,.14)}
+.sz[aria-pressed=true] b{color:var(--gold2)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.price{font-weight:800;font-size:1.15rem;color:var(--gold2)}
+.add{padding:9px 16px;border-radius:10px;background:var(--gold);color:#1a1204;font-weight:800;min-height:44px;transition:transform .15s}
+.add:active{transform:scale(.9)}
+.add.done{background:var(--ok)}
+.empty{text-align:center;color:var(--mut);padding:50px 0}
+/* drawer */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:60;opacity:0;pointer-events:none;transition:.25s}
+.ov.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(440px,100%);z-index:70;background:var(--bg2);border-right:1px solid var(--gold);transform:translateX(-102%);transition:transform .3s;display:flex;flex-direction:column;visibility:hidden}
+.drawer.on{transform:none;visibility:visible}
+.dh{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.dh h2{font-family:'Reem Kufi','Cairo',serif;font-size:1.5rem}
+.x{width:44px;height:44px;border-radius:50%;font-size:1.4rem;border:1px solid var(--line)}
+.db{flex:1;overflow-y:auto;padding:14px 16px;overscroll-behavior:contain}
+.ci{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.ci .n{font-weight:700}
+.ci small{color:var(--mut);display:block}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold2);font-size:1.15rem;font-weight:800}
+.qty span{min-width:26px;text-align:center;font-weight:800}
+.del{color:var(--err);font-size:.85rem;text-decoration:underline;padding:6px}
+.tot{margin:14px 0;padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.tot div{display:flex;justify-content:space-between;padding:3px 0}
+.tot .fin{border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-size:1.2rem;font-weight:800;color:var(--gold2)}
+form label{display:block;margin:12px 0 4px;font-weight:600;font-size:.95rem}
+form label i{color:var(--mut);font-style:normal;font-weight:400;font-size:.8rem}
+form input,form textarea{width:100%;padding:11px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:1rem}
+form input:focus,form textarea:focus{border-color:var(--gold);outline:0}
+form .bad{border-color:var(--err)}
+.err{color:var(--err);font-size:.85rem;min-height:1.1em}
+.acts{display:grid;gap:10px;margin-top:16px}
+.fb{margin-top:14px;padding:12px;border:1px solid var(--gold);border-radius:12px;background:rgba(212,164,55,.08);font-size:.92rem}
+.fb .acts{grid-template-columns:1fr 1fr}
+.clr{color:var(--mut);text-decoration:underline;text-align:center;padding:10px}
+.ce{text-align:center;color:var(--mut);padding:40px 0}
+/* floating */
+.wa-f{position:fixed;bottom:calc(18px + var(--safe-b));left:16px;z-index:50;width:58px;height:58px;border-radius:50%;background:#1fa855;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.wa-f svg{width:32px;height:32px;fill:#fff}
+.top{position:fixed;bottom:calc(88px + var(--safe-b));left:22px;z-index:50;width:46px;height:46px;border-radius:50%;background:var(--card);border:1.5px solid var(--gold);color:var(--gold2);font-size:1.3rem;opacity:0;pointer-events:none;transition:.25s}
+.top.on{opacity:1;pointer-events:auto}
+.toast{position:fixed;bottom:calc(24px + var(--safe-b));right:50%;transform:translate(50%,30px);z-index:90;max-width:92vw;padding:12px 20px;border-radius:12px;background:#f1d37a;color:#1a1204;font-weight:700;opacity:0;pointer-events:none;transition:.3s}
+.toast.on{opacity:1;transform:translate(50%,0)}
+.toast.bad{background:var(--err)}
+footer{margin-top:60px;padding:36px 0 110px;border-top:1px solid var(--line);background:var(--bg2);text-align:center}
+footer .logo{font-size:2.2rem}
+footer p{color:var(--mut);margin:6px 0}
+.soc{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:16px 0}
+.soc span{padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(min-width:700px){.hero{min-height:84vh}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hbar">
+    <a href="#top" class="logo gold" aria-label="مطعم الحجي">مطعم الحجي</a>
+    <button class="cartbtn" id="openCart" aria-label="إتمام الطلب"><span>إتمام الطلب</span><span class="badge" id="badge">0</span></button>
+  </div>
+</header>
+<div class="hours" id="hoursBar" role="status" aria-live="polite"></div>
+
+<main id="top">
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=70" alt="صورة توضيحية للحوم مشوية" loading="eager" onerror="this.remove()">
+  <div class="wrap"><div class="in">
+    <h1 class="gold">مطعم الحجي</h1>
+    <div class="slogan">«اللحوم عراقية 100٪ وعلى ذمتنا»</div>
+    <p>مشويات وكص وبيتزا وأكلات شرقية. اختر أكلتك وأرسل طلبك بضغطة واحدة عبر واتساب.</p>
+    <div class="deliv">🛵 أجور التوصيل ثابتة: <span class="price" id="heroDel"></span> لكل طلب</div><br>
+    <a class="btn" href="#menu">اطلب الآن</a>
+  </div></div>
+</section>
+
+<section class="wrap" aria-label="أقسام الطعام"><div class="catgrid" id="catgrid"></div></section>
+
+<section id="menu" class="wrap">
+  <div class="tools">
+    <input class="search" id="search" type="search" placeholder="ابحث عن طبق… مثال: كباب، بيتزا، منسف" aria-label="بحث في القائمة" autocomplete="off">
+    <div class="chips" id="chips" role="group" aria-label="تصفية حسب القسم"></div>
+  </div>
+  <div id="menuOut" aria-live="polite"></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo gold">مطعم الحجي</div>
+    <p>«اللحوم عراقية 100٪ وعلى ذمتنا»</p>
+    <p>واتساب الطلبات: <bdi dir="ltr" id="ftPhone"></bdi></p>
+    <p>ساعات العمل: <span id="ftHours"></span></p>
+    <div class="soc">
+      <span>فيسبوك: الحجي حياوي</span>
+      <span>إنستغرام: <bdi dir="ltr">2v1</bdi></span>
+      <span>تيك توك: مطعم الحجي <bdi dir="ltr">v11_2</bdi></span>
+    </div>
+    <p>الأسعار بالدينار العراقي. أجور التوصيل <span id="ftDel"></span> لكل طلب.</p>
+  </div>
+</footer>
+
+<a class="wa-f" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="تواصل معنا عبر واتساب">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.700 1.900 6.600L3.200 29l7.100-2.100c1.800 1 3.800 1.500 5.700 1.500 7 0 12.600-5.600 12.600-12.500S23 3 16 3zm0 22.800c-1.800 0-3.600-.5-5.100-1.400l-.4-.2-4.200 1.200 1.200-4.100-.3-.4a10 10 0 0 1-1.600-5.400C5.600 10 10.300 5.400 16 5.400s10.400 4.600 10.400 10.200S21.700 25.800 16 25.800zm5.700-7.500c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.500 8.500 0 0 1-4.200-3.700c-.3-.6.300-.6.900-1.800.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400s-1.200 1.200-1.200 2.800 1.200 3.300 1.400 3.500 2.400 3.700 5.800 5.100c2.200.9 3 .9 4 .8.600-.1 1.900-.8 2.200-1.500s.3-1.400.2-1.500-.3-.2-.6-.4z"/></svg>
+</a>
+<button class="top" id="toTop" aria-label="العودة إلى الأعلى">↑</button>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="dh"><h2 id="dTitle" class="gold">إتمام الطلب</h2><button class="x" id="closeCart" aria-label="إغلاق السلة">×</button></div>
+  <div class="db" id="db">
+    <div id="cartList"></div>
+    <div id="cartRest" hidden>
+      <div class="tot" aria-live="polite">
+        <div><span>مجموع الطعام</span><span id="tFood"></span></div>
+        <div><span>أجور التوصيل</span><span id="tDel"></span></div>
+        <div class="fin"><span>المبلغ النهائي</span><span id="tAll"></span></div>
+      </div>
+      <form id="form" novalidate>
+        <label for="fPhone">رقم الهاتف</label>
+        <input id="fPhone" type="tel" inputmode="tel" dir="ltr" style="text-align:right" placeholder="07xxxxxxxxx" autocomplete="tel" required><div class="err" id="ePhone"></div>
+        <label for="fAddr">عنوانك</label>
+        <textarea id="fAddr" rows="2" placeholder="المنطقة، الشارع، أقرب نقطة دالة" autocomplete="street-address" required></textarea><div class="err" id="eAddr"></div>
+        <div class="acts">
+          <button type="submit" class="btn wa" id="sendBtn">إرسال الطلب</button>
+          <button type="button" class="clr" id="clearCart">مسح السلة</button>
+        </div>
+      </form>
+      <div class="fb" id="fb" hidden>
+        <p id="fbMsg"></p>
+        <div class="acts"><button class="btn sec" id="copyBtn" type="button">نسخ تفاصيل الطلب</button><button class="btn sec" id="retryBtn" type="button">فتح واتساب مرة أخرى</button></div>
+      </div>
+    </div>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   إعدادات المطعم – عدّل هنا فقط:
+   - رقم واتساب الطلبات (بالصيغة الدولية بدون + أو أصفار): CONFIG.whatsapp
+   - أجور التوصيل بالدينار العراقي: CONFIG.delivery
+   - ساعات الدوام: CONFIG.openMin و CONFIG.closeMin (بالدقائق من منتصف الليل، بتوقيت بغداد)
+   - الأسعار والأصناف: في مصفوفة MENU أدناه
+   ===================================================================== */
+/*DATA-START*/
+const CONFIG={name:'مطعم الحجي',whatsapp:'9647700240001',localPhone:'07700240001',delivery:1000,tz:'Asia/Baghdad',openMin:11*60,closeMin:1*60+50};
+/* الدوام من 11:00 صباحاً حتى 1:50 صباحاً (اليوم التالي). m = الدقائق منذ منتصف الليل */
+const isOpenAt=m=>{const o=CONFIG.openMin,c=CONFIG.closeMin;return o<c?(m>=o&&m<c):(m>=o||m<c)};
+const SIZES=['صغير','وسط','كبير'];
+/* كل صنف: [الاسم, السعر أو [صغير,وسط,كبير], ملاحظة اختيارية] */
+const MENU=[
+{id:'pizza',name:'البيتزا',icon:'🍕',items:[
+['بيتزا لحم',[5000,7000,10000]],['بيتزا دجاج',[5000,7000,10000]],['بيتزا الفصول الأربعة',[5000,7000,10000]],['بيتزا ماركريتا',[4000,6000,8000]],['بيتزا ببروني',[5000,7000,10000]],
+['بيتزا لحم',3000,'الحجم غير محدد'],['بيتزا دجاج',3000,'الحجم غير محدد']]},
+{id:'shawarma',name:'الشاورما والكص',icon:'🥙',items:[
+['صاج شاورما لحم',2500],['صاج شاورما دجاج',2000],['صاج ايطالي لحم',5000],['صاج ايطالي دجاج',5000],
+['كيلو كص لحم صالة',30000],['نص كيلو كص لحم صالة',15000],['نفر كص دجاج صالة',8000],['نص نفر كص دجاج صالة',5000],['نفر كص لحم صالة',10000],['نص نفر كص لحم صالة',7000],['كيلو كص دجاج صالة',20000],['نص كيلو كص دجاج صالة',10000]]},
+{id:'grill',name:'المشويات',icon:'🍢',items:[
+['نفر كباب لحم غنم',12000],['نصف نفر كباب لحم غنم',6000],['نفر تكه لحم غنم',14000],['نصف نفر تكه لحم غنم',7000],['نفر كباب دجاج',10000],['نصف نفر كباب دجاج',5000],['نفر تكه دجاج متبله',10000],['نصف نفر تكه دجاج متبله',5000],
+['نفر معلاك غنم',14000],['نصف نفر معلاك',7000],['نفر قلب غنم',12000],['نصف نفر قلب غنم',6000],['نفر جلاوي غنم',12000],['نصف نفر جلاوي غنم',6000],
+['نفر مسحب دجاج ناشف (نصف دجاجه)',8000],['نفر مسحب دجاج عالتمن (نصف دجاجه)',10000],['دجاجه عالقحم صينيه عالتمن',15000],['نصف دجاجه عالقحم صينيه عالتمن',8000],['دجاجه عالقحم ناشف صينيه بدون تمن',13000],['نصف دجاجه عالقحم ناشف صينيه بدون تمن',7000]]},
+{id:'weight',name:'المشويات بالوزن',icon:'⚖️',items:[
+['كيلو كباب لحم غنم (20 شيش) سفري',20000],['نص كيلو كباب لحم غنم (10 شيش) سفري',10000],['كيلو كباب دجاج (20 شيش) سفري',16000],['نص كيلو كباب دجاج (10 شيش) سفري',8000],['نفر أجنحة دجاج',10000],['نص نفر أجنحة دجاج',5000]]},
+{id:'wraps',name:'لفات المشويات',icon:'🌯',items:[
+['لفه كباب لحم غنم',1500],['لفه كباب دجاج',1500],['لفه تكه دجاج',1500],['لفه تكه لحم',2500],['لفه معلاك',2500],['لفه قلب',2500],['لفه جلاوي',2500],['شيش ليه',2500]]},
+{id:'kfc',name:'كنتاكي وستربس',icon:'🍗',items:[
+['كنتاكي 3 قطع',5000],['كنتاكي 5 قطع',8000],['كنتاكي 10 قطع عائلي',16000],['ستر بس 10 قطع عائلي',15000],['ستر بس 7 قطع',10000],['ستر بس 4 قطع',6000]]},
+{id:'starters',name:'المقبلات',icon:'🥗',items:[['ماعون ثنائي',1000],['خماسي',2000],['صينية مشكل',5000]]},
+{id:'drinks',name:'المشروبات',icon:'🥤',items:[['ببسي',500],['سفن',500],['ميرندا',500],['لبن',500]]},
+{id:'sandwich',name:'السندويشات',icon:'🥪',items:[['سندويش شاورما لحم',2000],['سندويش دجاج',1500],['سندويش زنكر',3000]]},
+{id:'lugham',name:'اللغم',icon:'🥖',items:[['لغم لحم',5000],['لغم دجاج',5000],['زنكر',3000]]},
+{id:'burger',name:'البركر',icon:'🍔',items:[['بركر لحم كلاسك',1000],['بركر لحم بالجبن',2000],['بركر دجاج بالجبن',2000],['بركر لحم دبل',3000]]},
+{id:'rizo',name:'الريزو',icon:'🍛',items:[['ريزو اعشاب',5000],['ريزو بالجبن',5000],['ريزو مدخن',5000],['ريزو هبلينو',5000],['ريزو كلاسك',5000],['ريزو شاورما دجاج',5000],['ريزو شاورما لحم',5000],['ريزو سبايسي',5000],['ريزو',3000]]},
+{id:'fanker',name:'الفنكر',icon:'🍟',items:[['فنكر عادي',1000],['فنكر بالجبن',1500],['فنكر عائلي',3000]]},
+{id:'chicken',name:'الدجاج',icon:'🐔',items:[
+['دجاجة ذبح عراقي',14000],['نص دجاجة ذبح عراقي',8000],['دجاجة مشوية',12000],['نص دجاجة مشوية',7000],['ربع دجاجة ذبح عراقي',5000],['ربع دجاجة عالتمن',4000]]},
+{id:'falafel',name:'الفلافل واللفات',icon:'🧆',items:[
+['لفة فلافل مشكل',500],['صاج فلافل',1000],['صينية فلافل كبيرة',5000],['صينية فلافل وسط',3000],['لفة قوزي دجاج',1000],['لفة جلفراي',1000],['لفة مغربية',1000],['لفة كبدة دجاج',1000]]},
+{id:'eastern',name:'الأكلات الشرقية',icon:'🍲',items:[
+['منسف دجاج + لحم',50000],['منسف سمك + دجاج',40000],['منسف سمك + لحم',60000],['منسف دجاج',25000],['صينية تمن ومرق كبيرة',10000],['صينية تمن ومرق وسط',7000],['صينية تمن ومرق صغيرة',5000],['نفر تمن ومرق',3000]]}
+];
+/* بناء قائمة مسطحة بمعرفات فريدة تلقائياً */
+const ITEMS=[];
+MENU.forEach(c=>c.items.forEach((a,i)=>ITEMS.push({id:c.id+'-'+(i+1),cat:c.id,name:a[0],price:Array.isArray(a[1])?null:a[1],prices:Array.isArray(a[1])?a[1]:null,note:a[2]||''})));
+const BYID={};ITEMS.forEach(i=>BYID[i.id]=i);
+const fmt=n=>Number(n).toLocaleString('en-US')+' د.ع';
+const unit=(l)=>{const it=BYID[l.id];return it.prices?it.prices[l.s]:it.price};
+const label=(l)=>{const it=BYID[l.id];return it.name+(it.note?' ('+it.note+')':'')};
+const foodTotal=(cart)=>cart.reduce((s,l)=>s+unit(l)*l.q,0);
+const grandTotal=(cart)=>cart.length?foodTotal(cart)+CONFIG.delivery:0;
+function buildMessage(cart,c,ref){
+  const L=['*'+CONFIG.name+'*','رقم الطلب: '+ref,'','*بيانات الزبون*','الهاتف: '+c.phone,'العنوان: '+c.addr,'','*الأصناف*'];
+  cart.forEach((l,n)=>{const it=BYID[l.id];
+    L.push((n+1)+') '+label(l)+(it.prices?' – الحجم: '+SIZES[l.s]:''));
+    L.push('   الكمية: '+l.q+' × '+fmt(unit(l))+' = '+fmt(unit(l)*l.q));});
+  L.push('','مجموع الطعام: '+fmt(foodTotal(cart)),'أجور التوصيل: '+fmt(CONFIG.delivery),'*الإجمالي النهائي: '+fmt(grandTotal(cart))+'*');
+  return L.join('\n');
+}
+const waLink=(msg)=>'https://wa.me/'+CONFIG.whatsapp+(msg?'?text='+encodeURIComponent(msg):'');
+/*DATA-END*/
+
+const $=id=>document.getElementById(id);
+const norm=s=>String(s).replace(/[\u064B-\u065F\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').toLowerCase();
+const KEY='hajji_cart_v1',FKEY='hajji_form_v1';
+let cart=[],ref='',cat='all',sel={},lastMsg='',toastT;
+
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(d&&Array.isArray(d.cart)){cart=d.cart.filter(l=>BYID[l.id]&&l.q>0&&(BYID[l.id].prices?SIZES[l.s]:true));ref=d.ref||''}}catch(e){cart=[]}
+  try{const f=JSON.parse(localStorage.getItem(FKEY)||'{}');['Phone','Addr'].forEach(k=>{if(f[k])$('f'+k).value=f[k]})}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({cart,ref}))}catch(e){}}
+function saveForm(){try{localStorage.setItem(FKEY,JSON.stringify({Phone:$('fPhone').value,Addr:$('fAddr').value}))}catch(e){}}
+function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast on'+(bad?' bad':'');clearTimeout(toastT);toastT=setTimeout(()=>t.className='toast',2200)}
+
+/* ---------- القائمة ---------- */
+function renderCats(){
+  $('catgrid').innerHTML=MENU.map(c=>`<button class="cg" data-go="${c.id}"><b aria-hidden="true">${c.icon}</b><span>${c.name}</span></button>`).join('');
+  $('chips').innerHTML=[{id:'all',name:'الكل'}].concat(MENU).map(c=>`<button class="chip" data-cat="${c.id}" aria-pressed="${c.id===cat}">${c.name}</button>`).join('');
+}
+function renderMenu(){
+  const q=norm($('search').value.trim());let h='',n=0;
+  MENU.forEach(c=>{
+    if(cat!=='all'&&cat!==c.id)return;
+    const list=ITEMS.filter(i=>i.cat===c.id&&(!q||norm(i.name+' '+i.note+' '+c.name).includes(q)));
+    if(!list.length)return;n+=list.length;
+    h+=`<h2 class="sec" id="sec-${c.id}"><span aria-hidden="true">${c.icon}</span>${c.name}</h2><div class="items">`+list.map(i=>{
+      const s=sel[i.id]||0;
+      return `<article class="it"><h3>${i.name}${i.note?`<br><span class="note">${i.note}</span>`:''}</h3>`+
+      (i.prices?`<div class="sizes" role="group" aria-label="اختيار الحجم">${i.prices.map((p,k)=>`<button class="sz" data-size="${i.id}:${k}" aria-pressed="${k===s}">${SIZES[k]}<b>${fmt(p)}</b></button>`).join('')}</div>`:'')+
+      `<div class="row"><span class="price">${fmt(i.prices?i.prices[s]:i.price)}</span><button class="add" data-add="${i.id}" aria-label="إضافة ${i.name} إلى السلة"${OPEN?'':' disabled'}>${OPEN?'+ أضف للسلة':'مغلق حالياً'}</button></div></article>`}).join('')+`</div>`;
+  });
+  $('menuOut').innerHTML=n?h:'<div class="empty">لا توجد نتائج مطابقة. جرّب كلمة أخرى أو اختر «الكل».</div>';
+}
+
+/* ---------- السلة ---------- */
+const find=(id,s)=>cart.find(l=>l.id===id&&l.s===s);
+function add(id,s){const l=find(id,s);if(l)l.q=Math.min(l.q+1,99);else cart.push({id,s,q:1});if(!ref)ref=newRef();save();renderCart();}
+function newRef(){const d=new Date(),p=n=>String(n).padStart(2,'0');return 'H'+String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate())+'-'+Math.floor(1000+Math.random()*9000)}
+function renderCart(){
+  const cnt=cart.reduce((s,l)=>s+l.q,0);
+  $('badge').textContent=cnt;
+  if(!cart.length){$('cartList').innerHTML='<div class="ce">السلة فارغة.<br>اختر من القائمة وأضف أطباقك.</div>';$('cartRest').hidden=true;return}
+  $('cartList').innerHTML=cart.map((l,i)=>{const it=BYID[l.id];return `<div class="ci"><div><div class="n">${label(l)}</div><small>${it.prices?'الحجم: '+SIZES[l.s]+' · ':''}${fmt(unit(l))}</small></div>
+  <div class="qty"><button data-q="${i}:-1" aria-label="تقليل الكمية">−</button><span>${l.q}</span><button data-q="${i}:1" aria-label="زيادة الكمية">+</button></div>
+  <div><strong>${fmt(unit(l)*l.q)}</strong></div><div style="text-align:left"><button class="del" data-del="${i}">حذف</button></div></div>`}).join('');
+  $('tFood').textContent=fmt(foodTotal(cart));$('tDel').textContent=fmt(CONFIG.delivery);$('tAll').textContent=fmt(grandTotal(cart));$('cartRest').hidden=false;
+}
+let lastFocus=null;
+function openCart(){lastFocus=document.activeElement;$('drawer').classList.add('on');$('ov').classList.add('on');document.body.style.overflow='hidden';setTimeout(()=>$('closeCart').focus(),50)}
+function closeCart(){$('drawer').classList.remove('on');$('ov').classList.remove('on');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+
+/* ---------- التحقق والإرسال ---------- */
+function validate(){
+  const v={phone:$('fPhone').value.trim(),addr:$('fAddr').value.trim()};
+  const ph=v.phone.replace(/[\s\-()]/g,'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  const E={Phone:!/^(\+?964|0)?7\d{9}$/.test(ph)?'يرجى كتابة رقم هاتف عراقي صحيح، مثال: 07701234567':'',Addr:v.addr.length<8?'يرجى كتابة عنوانك بالتفصيل (المنطقة والشارع وأقرب نقطة دالة).':''};
+  let first=null;
+  Object.keys(E).forEach(k=>{$('e'+k).textContent=E[k];$('f'+k).classList.toggle('bad',!!E[k]);if(E[k]&&!first)first=$('f'+k)});
+  if(first){first.focus();return null}
+  return v;
+}
+function send(){
+  if(!cart.length){toast('السلة فارغة، أضف أطباقاً أولاً.',1);return}
+  if(!isOpen()){toast('المطعم مغلق الآن، نفتح الساعة '+hm(CONFIG.openMin),1);tick();return}
+  const v=validate();if(!v){toast('يرجى تصحيح الحقول المطلوبة.',1);return}
+  saveForm();lastMsg=buildMessage(cart,v,ref);openWA();
+  $('fbMsg').textContent='تم تجهيز رسالة الطلب ولم يُرسل بعد. اضغط زر الإرسال داخل واتساب لإتمام الطلب. إذا لم يفتح واتساب استخدم الأزرار التالية:';
+  $('fb').hidden=false;$('fb').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function openWA(){try{const w=window.open(waLink(lastMsg),'_blank');if(!w)location.href=waLink(lastMsg)}catch(e){toast('تعذر فتح واتساب، استخدم زر النسخ.',1)}}
+async function copyOrder(){
+  try{await navigator.clipboard.writeText(lastMsg);toast('تم نسخ تفاصيل الطلب')}
+  catch(e){const t=document.createElement('textarea');t.value=lastMsg;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast('تم نسخ تفاصيل الطلب')}catch(x){toast('تعذر النسخ تلقائياً',1)}t.remove()}
+}
+
+/* ---------- الأحداث ---------- */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button,a');if(!b)return;
+  if(b.dataset.add){const id=b.dataset.add,it=BYID[id],s=it.prices?(sel[id]||0):0;add(id,s);
+    b.classList.add('done');b.textContent='✓ تمت الإضافة';setTimeout(()=>{b.classList.remove('done');b.textContent=OPEN?'+ أضف للسلة':'مغلق حالياً'},900);
+    $('badge').classList.remove('bump');void $('badge').offsetWidth;$('badge').classList.add('bump');toast('أُضيف إلى السلة: '+label({id,s}));}
+  else if(b.dataset.size){const[id,k]=b.dataset.size.split(':');sel[id]=+k;renderMenu();const nb=document.querySelector(`[data-size="${id}:${k}"]`);if(nb)nb.focus()}
+  else if(b.dataset.cat){cat=b.dataset.cat;renderCats();renderMenu();}
+  else if(b.dataset.go){cat='all';$('search').value='';renderCats();renderMenu();const t=$('sec-'+b.dataset.go);if(t)t.scrollIntoView({behavior:'smooth'})}
+  else if(b.dataset.q){const[i,d]=b.dataset.q.split(':');const l=cart[+i];if(l){l.q+=+d;if(l.q<1)cart.splice(+i,1);if(l&&l.q>99)l.q=99;save();renderCart()}}
+  else if(b.dataset.del){cart.splice(+b.dataset.del,1);save();renderCart()}
+});
+$('search').addEventListener('input',renderMenu);
+$('openCart').onclick=openCart;$('closeCart').onclick=closeCart;$('ov').onclick=closeCart;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer').classList.contains('on'))closeCart()});
+$('form').addEventListener('submit',e=>{e.preventDefault();send()});
+$('form').addEventListener('input',e=>{if(e.target.id==='fNote')return;const k=e.target.id.slice(1);if($('e'+k)){$('e'+k).textContent='';e.target.classList.remove('bad')}saveForm()});
+$('copyBtn').onclick=copyOrder;$('retryBtn').onclick=openWA;
+$('clearCart').onclick=()=>{if(confirm('هل تريد مسح كل الأصناف من السلة؟')){cart=[];ref='';save();renderCart();$('fb').hidden=true;toast('تم مسح السلة')}};
+$('toTop').onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+addEventListener('scroll',()=>$('toTop').classList.toggle('on',scrollY>700),{passive:true});
+addEventListener('error',()=>{/* لا نعطّل الموقع عند حدوث خطأ غير متوقع */});
+
+/* ---------- ساعات العمل ---------- */
+const hm=m=>{const h=Math.floor(m/60)%24,mm=String(m%60).padStart(2,'0');return ((h%12)||12)+':'+mm+(h>=12?' مساءً':' صباحاً')};
+function nowMin(){try{const p=new Intl.DateTimeFormat('en-GB',{timeZone:CONFIG.tz,hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());const g=t=>+p.find(x=>x.type===t).value;return g('hour')*60+g('minute')}catch(e){const d=new Date(Date.now()+3*36e5);return d.getUTCHours()*60+d.getUTCMinutes()}}
+const isOpen=()=>isOpenAt(nowMin());
+let OPEN=isOpen();
+function renderHours(){
+  const b=$('hoursBar'),span=hm(CONFIG.openMin)+' حتى '+hm(CONFIG.closeMin);
+  b.className='hours '+(OPEN?'on':'off');
+  b.textContent=OPEN?'🟢 مفتوح الآن، الدوام من '+span:'🔴 المطعم مغلق الآن، نفتح الساعة '+hm(CONFIG.openMin)+' (الدوام من '+span+')';
+  $('sendBtn').disabled=!OPEN;$('sendBtn').textContent=OPEN?'إرسال الطلب':'مغلق حالياً، نفتح '+hm(CONFIG.openMin);
+}
+function tick(){const o=isOpen();if(o!==OPEN){OPEN=o;renderMenu()}renderHours()}
+setInterval(tick,30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
+
+/* ---------- تشغيل ---------- */
+$('heroDel').textContent=fmt(CONFIG.delivery);$('ftDel').textContent=fmt(CONFIG.delivery);
+$('ftPhone').textContent=CONFIG.localPhone;$('waFloat').href=waLink('السلام عليكم، أريد الطلب من '+CONFIG.name);
+$('ftHours').textContent='من '+hm(CONFIG.openMin)+' حتى '+hm(CONFIG.closeMin);
+load();renderCats();renderMenu();renderCart();renderHours();
+</script>
+</body>
+</html>
